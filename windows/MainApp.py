@@ -81,7 +81,7 @@ class MainApp(tk.Tk):
         self.frame3 = tk.Frame(self)
         self.lResults = tk.Label(self.frame3, text=Manager.get_name('results'))
         self.tResults = tk.ttk.Treeview(self.frame3, show='headings',
-                                        columns=('1', Manager.get_name('author'), Manager.get_name('book')))
+                                        columns=('1', Manager.get_name('book'), Manager.get_name('author')))
         self.scrollResults = tk.Scrollbar(self.tResults, orient=tk.VERTICAL, command=self.tResults.yview)
 
         # Frame 4
@@ -117,10 +117,10 @@ class MainApp(tk.Tk):
 
         self.tResults.heading('1', text='*')
         self.tResults.column('1', width=15, minwidth=30, stretch=tk.NO)
-        self.tResults.heading(Manager.get_name('author'), text=Manager.get_name('author'))
-        self.tResults.column(Manager.get_name('author'), width=200)
         self.tResults.heading(Manager.get_name('book'), text=Manager.get_name('book'))
         self.tResults.column(Manager.get_name('book'), width=551)
+        self.tResults.heading(Manager.get_name('author'), text=Manager.get_name('author'))
+        self.tResults.column(Manager.get_name('author'), width=200)
         self.tResults.bind('<Double-1>', self.on_search_result_dclick)
         self.tResults.bind('<Button-3>', self.on_search_result_rclick)
 
